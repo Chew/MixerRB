@@ -8,6 +8,7 @@ class MixerRB
   # @param apikey [String] API Key, taken from the Mixer site.
   def initialize(apikey)
     @api = apikey
+    setup
   end
 
   # Change the API key
@@ -24,4 +25,13 @@ class MixerRB
   attr_reader :api
 
   alias apikey api
+
+  def setup
+    @achievements = Achievements.new
+  end
+
+  attr_reader :achievements
 end
+
+# Require files
+require 'mixerrb/achievements'
